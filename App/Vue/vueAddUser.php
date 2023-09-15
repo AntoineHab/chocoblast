@@ -18,7 +18,7 @@
         <input type="password" name="password_utilisateur">
         <label for="repeat_password_utilisateur">Saisir le mot de passe:</label>
         <input type="password" name="repeat_password_utilisateur">
-        <input type="submit" name="submit" value="Ajouter">
+        <input type="submit" name="submit" value="Ajouter un compte">
         <div><?=$error?></div>
     </form>
     
