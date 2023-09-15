@@ -28,7 +28,7 @@ class Utilisateur extends BddConnect{
         $this->id_utilisateur = $id;
     }
     public function getNom():?string{
-        return $this->nom_utilisteur;
+        return $this->nom_utilisateur;
     }
     public function setNom(?String $nom){
         $this->nom_utilisateur = $nom;
@@ -80,11 +80,31 @@ class Utilisateur extends BddConnect{
             $req->bindParam(2, $prenom, \PDO::PARAM_STR);
             $req->bindParam(3, $mail, \PDO::PARAM_STR);
             $req->bindParam(4, $password, \PDO::PARAM_STR);
+            $req->execute();
 
         }
         catch (\Exception $e){
             die('Error  :' .$e->getMessage());
         }
+    }
+
+    public function findOneBuy(){
+        try {
+
+            $mail = $this->mail_utilisateur;
+            $req=$this->connexion()->prepare(
+                "SELECT id_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, password_utilisateur 
+                FROM utilisateur WHERE mail_utilisateur= ?"
+            );
+            $req->bindParam(1, $mail, \PDO::PARAM_STR);
+            $req->setFetchMode(\PDO::FETCH_CLASS| \PDO::FETCH_PROPS_LATE,Utilisateur::class);
+            $req->execute();
+            return $req->fetch();
+        }
+        catch (\Exception $e){
+            die('Error  :' .$e->getMessage());
+        }
+
     }
 }
 

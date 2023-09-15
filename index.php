@@ -1,6 +1,8 @@
 <?php
 //import de l'autoloader des classes
 require_once './autoload.php';
+require_once './vendor/autoload.php';
+// require './vendor/autoload.php';
 use App\Controller\UtilisateurController;
 $userController = new UtilisateurController();
 //Analyse de l'URL avec parse_url() et retourne ses composants
@@ -12,8 +14,7 @@ $userController = new UtilisateurController();
         case '/mvc/':
             include './home.php';
             break;
-        case '/mvc/test':
-            include './userAdd.php';
+        case '/mvc/useradd':
             $userController->addUser();
             break;
         default:

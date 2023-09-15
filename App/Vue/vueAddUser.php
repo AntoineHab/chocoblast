@@ -15,9 +15,9 @@
         <label for="mail_utilisateur">Saisir le mail:</label>
         <input type="text" name="mail_utilisateur">
         <label for="password_utilisateur">Saisir le mot de passe:</label>
-        <input type="text" name="password_utilisateur">
+        <input type="password" name="password_utilisateur">
         <label for="repeat_password_utilisateur">Saisir le mot de passe:</label>
-        <input type="text" name="repeat_password_utilisateur">
+        <input type="password" name="repeat_password_utilisateur">
         <input type="submit" name="submit" value="Ajouter">
         <div><?=$error?></div>
     </form>
